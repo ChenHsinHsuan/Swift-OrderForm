@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ReservePlayerHeaderView" customModule="OrderForm" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T5i-PB-29O" userLabel="ContentView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="預備選手" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cm5-mz-dln">
+                            <rect key="frame" x="15" y="0.0" width="64" height="19.5"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="背號" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2t-SK-h0v">
+                            <rect key="frame" x="277" y="25" width="32" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="ytJ-yb-m5g"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KB3-iL-Xl0">
+                            <rect key="frame" x="56" y="24" width="145" height="20"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.87843137250000003" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="x2t-SK-h0v" secondAttribute="trailing" constant="11" id="5RD-Wq-fBz"/>
+                        <constraint firstItem="KB3-iL-Xl0" firstAttribute="top" secondItem="cm5-mz-dln" secondAttribute="bottom" constant="4.5" id="6IZ-E5-JOw"/>
+                        <constraint firstAttribute="bottom" secondItem="x2t-SK-h0v" secondAttribute="bottom" constant="-1" id="9e2-bh-mOb"/>
+                        <constraint firstItem="cm5-mz-dln" firstAttribute="top" secondItem="T5i-PB-29O" secondAttribute="top" id="bVD-T3-YmN"/>
+                        <constraint firstItem="x2t-SK-h0v" firstAttribute="leading" secondItem="KB3-iL-Xl0" secondAttribute="trailing" constant="76" id="ewo-aU-95h"/>
+                        <constraint firstItem="KB3-iL-Xl0" firstAttribute="leading" secondItem="T5i-PB-29O" secondAttribute="leading" constant="56" id="mjQ-SJ-d8d"/>
+                        <constraint firstItem="cm5-mz-dln" firstAttribute="leading" secondItem="T5i-PB-29O" secondAttribute="leading" constant="15" id="vOo-2x-gkl"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="T5i-PB-29O" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0wF-sj-khH"/>
+                <constraint firstItem="T5i-PB-29O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4L8-Ad-8rh"/>
+                <constraint firstAttribute="bottom" secondItem="T5i-PB-29O" secondAttribute="bottom" id="GlE-I1-Mpq"/>
+                <constraint firstAttribute="trailing" secondItem="T5i-PB-29O" secondAttribute="trailing" id="UqR-09-ohp"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

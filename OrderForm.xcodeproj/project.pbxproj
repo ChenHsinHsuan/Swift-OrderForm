@@ -8,11 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		8F1512DA1B426F3200289665 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1512D91B426F3200289665 /* AppDelegate.swift */; };
-		8F1512DC1B426F3200289665 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1512DB1B426F3200289665 /* ViewController.swift */; };
+		8F1512DC1B426F3200289665 /* OrderFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1512DB1B426F3200289665 /* OrderFormViewController.swift */; };
 		8F1512DF1B426F3200289665 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F1512DD1B426F3200289665 /* Main.storyboard */; };
 		8F1512E11B426F3200289665 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F1512E01B426F3200289665 /* Images.xcassets */; };
 		8F1512E41B426F3200289665 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1512E21B426F3200289665 /* LaunchScreen.xib */; };
 		8F1512F01B426F3200289665 /* OrderFormTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1512EF1B426F3200289665 /* OrderFormTests.swift */; };
+		8F1512FC1B42752300289665 /* StartPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1512FB1B42752300289665 /* StartPlayerTableViewCell.swift */; };
+		8F1512FE1B427A1D00289665 /* ReservePlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1512FD1B427A1D00289665 /* ReservePlayerTableViewCell.swift */; };
+		8F1513011B427AB500289665 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1513001B427AB500289665 /* Player.swift */; };
+		8F1513041B42859F00289665 /* EditStartPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1513031B42859F00289665 /* EditStartPlayerViewController.swift */; };
+		8F1513061B42B7D400289665 /* EditReservePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1513051B42B7D400289665 /* EditReservePlayerViewController.swift */; };
+		8F7ACB0E1B439A4D00EAA932 /* StartPlayerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7ACB0D1B439A4D00EAA932 /* StartPlayerHeaderView.swift */; };
+		8F7ACB101B439A9400EAA932 /* StartPlayerHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F7ACB0F1B439A9400EAA932 /* StartPlayerHeaderView.xib */; };
+		8FF71A1C1B43DD5C0001E796 /* ReservePlayerHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF71A1B1B43DD5C0001E796 /* ReservePlayerHeaderView.xib */; };
+		8FF71A1E1B43DF320001E796 /* ReservePlayerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF71A1D1B43DF320001E796 /* ReservePlayerHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +38,22 @@
 		8F1512D41B426F3200289665 /* OrderForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrderForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F1512D81B426F3200289665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F1512D91B426F3200289665 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8F1512DB1B426F3200289665 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8F1512DB1B426F3200289665 /* OrderFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFormViewController.swift; sourceTree = "<group>"; };
 		8F1512DE1B426F3200289665 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8F1512E01B426F3200289665 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8F1512E31B426F3200289665 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8F1512E91B426F3200289665 /* OrderFormTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrderFormTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F1512EE1B426F3200289665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F1512EF1B426F3200289665 /* OrderFormTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFormTests.swift; sourceTree = "<group>"; };
+		8F1512FB1B42752300289665 /* StartPlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartPlayerTableViewCell.swift; sourceTree = "<group>"; };
+		8F1512FD1B427A1D00289665 /* ReservePlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservePlayerTableViewCell.swift; sourceTree = "<group>"; };
+		8F1513001B427AB500289665 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		8F1513031B42859F00289665 /* EditStartPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditStartPlayerViewController.swift; sourceTree = "<group>"; };
+		8F1513051B42B7D400289665 /* EditReservePlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditReservePlayerViewController.swift; sourceTree = "<group>"; };
+		8F7ACB0D1B439A4D00EAA932 /* StartPlayerHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartPlayerHeaderView.swift; sourceTree = "<group>"; };
+		8F7ACB0F1B439A9400EAA932 /* StartPlayerHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartPlayerHeaderView.xib; sourceTree = "<group>"; };
+		8FF71A1B1B43DD5C0001E796 /* ReservePlayerHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReservePlayerHeaderView.xib; sourceTree = "<group>"; };
+		8FF71A1D1B43DF320001E796 /* ReservePlayerHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservePlayerHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +95,10 @@
 		8F1512D61B426F3200289665 /* OrderForm */ = {
 			isa = PBXGroup;
 			children = (
+				8F1513021B4282EB00289665 /* Controllers */,
+				8F1512FF1B427AA800289665 /* Classes */,
+				8F1512FA1B4274FE00289665 /* Views */,
 				8F1512D91B426F3200289665 /* AppDelegate.swift */,
-				8F1512DB1B426F3200289665 /* ViewController.swift */,
 				8F1512DD1B426F3200289665 /* Main.storyboard */,
 				8F1512E01B426F3200289665 /* Images.xcassets */,
 				8F1512E21B426F3200289665 /* LaunchScreen.xib */,
@@ -112,6 +132,45 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8F1512FA1B4274FE00289665 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8F7ACB041B43836E00EAA932 /* Cells */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		8F1512FF1B427AA800289665 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8F1513001B427AB500289665 /* Player.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		8F1513021B4282EB00289665 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8F1513031B42859F00289665 /* EditStartPlayerViewController.swift */,
+				8F1512DB1B426F3200289665 /* OrderFormViewController.swift */,
+				8F1513051B42B7D400289665 /* EditReservePlayerViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		8F7ACB041B43836E00EAA932 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8F1512FB1B42752300289665 /* StartPlayerTableViewCell.swift */,
+				8F1512FD1B427A1D00289665 /* ReservePlayerTableViewCell.swift */,
+				8F7ACB0D1B439A4D00EAA932 /* StartPlayerHeaderView.swift */,
+				8F7ACB0F1B439A9400EAA932 /* StartPlayerHeaderView.xib */,
+				8FF71A1B1B43DD5C0001E796 /* ReservePlayerHeaderView.xib */,
+				8FF71A1D1B43DF320001E796 /* ReservePlayerHeaderView.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,6 +181,7 @@
 				8F1512D01B426F3200289665 /* Sources */,
 				8F1512D11B426F3200289665 /* Frameworks */,
 				8F1512D21B426F3200289665 /* Resources */,
+				8F1512F91B426F3900289665 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -161,6 +221,7 @@
 				TargetAttributes = {
 					8F1512D31B426F3200289665 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 2K5477L82X;
 					};
 					8F1512E81B426F3200289665 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -193,6 +254,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F1512DF1B426F3200289665 /* Main.storyboard in Resources */,
+				8F7ACB101B439A9400EAA932 /* StartPlayerHeaderView.xib in Resources */,
+				8FF71A1C1B43DD5C0001E796 /* ReservePlayerHeaderView.xib in Resources */,
 				8F1512E41B426F3200289665 /* LaunchScreen.xib in Resources */,
 				8F1512E11B426F3200289665 /* Images.xcassets in Resources */,
 			);
@@ -207,12 +270,35 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8F1512F91B426F3900289665 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8F1512D01B426F3200289665 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F1512DC1B426F3200289665 /* ViewController.swift in Sources */,
+				8F1512DC1B426F3200289665 /* OrderFormViewController.swift in Sources */,
+				8F1512FC1B42752300289665 /* StartPlayerTableViewCell.swift in Sources */,
+				8F1513041B42859F00289665 /* EditStartPlayerViewController.swift in Sources */,
+				8F1512FE1B427A1D00289665 /* ReservePlayerTableViewCell.swift in Sources */,
+				8F1513011B427AB500289665 /* Player.swift in Sources */,
+				8FF71A1E1B43DF320001E796 /* ReservePlayerHeaderView.swift in Sources */,
+				8F7ACB0E1B439A4D00EAA932 /* StartPlayerHeaderView.swift in Sources */,
+				8F1513061B42B7D400289665 /* EditReservePlayerViewController.swift in Sources */,
 				8F1512DA1B426F3200289665 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = OrderForm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -352,6 +439,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = OrderForm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -411,6 +499,7 @@
 				8F1512F51B426F3200289665 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8F1512F61B426F3200289665 /* Build configuration list for PBXNativeTarget "OrderFormTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +508,7 @@
 				8F1512F81B426F3200289665 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
