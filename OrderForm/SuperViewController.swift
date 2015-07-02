@@ -1,5 +1,5 @@
 //
-//  MainNavigationViewController.swift
+//  SuperViewController.swift
 //  OrderForm
 //
 //  Created by Chen Hsin Hsuan on 2015/7/2.
@@ -8,21 +8,24 @@
 
 import UIKit
 
-class MainNavigationViewController: UINavigationController {
+class SuperViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
-//        self.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-//        self.navigationBar.shadowImage = UIImage()
-//        self.navigationBar.translucent = true
-//        self.view.backgroundColor = UIColor.clearColor()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
     
     /*
     // MARK: - Navigation

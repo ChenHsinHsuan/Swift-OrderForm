@@ -9,7 +9,7 @@
 
 import UIKit
 
-class ChangePlayerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChangePlayerViewController: SuperViewController, UITableViewDelegate, UITableViewDataSource {
 
     var orderFormViewController:OrderFormViewController!
 

@@ -26,6 +26,8 @@
 		8FF71A221B44E6BC0001E796 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF71A211B44E6BC0001E796 /* MainNavigationViewController.swift */; };
 		8FF71A241B450CF30001E796 /* ChangePlayerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF71A231B450CF30001E796 /* ChangePlayerTableViewController.swift */; };
 		8FF71A261B45163A0001E796 /* NoPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF71A251B45163A0001E796 /* NoPlayerTableViewCell.swift */; };
+		8FF71A281B45330F0001E796 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF71A271B45330F0001E796 /* MainViewController.swift */; };
+		8FF71A2A1B4536170001E796 /* SuperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF71A291B4536170001E796 /* SuperViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		8FF71A211B44E6BC0001E796 /* MainNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		8FF71A231B450CF30001E796 /* ChangePlayerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePlayerTableViewController.swift; sourceTree = "<group>"; };
 		8FF71A251B45163A0001E796 /* NoPlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoPlayerTableViewCell.swift; sourceTree = "<group>"; };
+		8FF71A271B45330F0001E796 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8FF71A291B4536170001E796 /* SuperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,8 @@
 				8FF71A1F1B44C9DC0001E796 /* PositionViewController.swift */,
 				8FF71A211B44E6BC0001E796 /* MainNavigationViewController.swift */,
 				8FF71A231B450CF30001E796 /* ChangePlayerTableViewController.swift */,
+				8FF71A271B45330F0001E796 /* MainViewController.swift */,
+				8FF71A291B4536170001E796 /* SuperViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -310,6 +316,8 @@
 				8F1513011B427AB500289665 /* Player.swift in Sources */,
 				8FF71A1E1B43DF320001E796 /* ReservePlayerHeaderView.swift in Sources */,
 				8FF71A241B450CF30001E796 /* ChangePlayerTableViewController.swift in Sources */,
+				8FF71A2A1B4536170001E796 /* SuperViewController.swift in Sources */,
+				8FF71A281B45330F0001E796 /* MainViewController.swift in Sources */,
 				8F7ACB0E1B439A4D00EAA932 /* StartPlayerHeaderView.swift in Sources */,
 				8FF71A261B45163A0001E796 /* NoPlayerTableViewCell.swift in Sources */,
 				8FF71A201B44C9DC0001E796 /* PositionViewController.swift in Sources */,

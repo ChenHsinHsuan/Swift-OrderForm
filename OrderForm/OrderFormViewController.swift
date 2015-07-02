@@ -28,7 +28,7 @@ let positionDict:[String:String] = ["P":"投", "C":"捕", "1B":"一",
 
 
 
-class OrderFormViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class OrderFormViewController: SuperViewController, UITableViewDelegate, UITableViewDataSource {
 
     //MARK:IBoutLet
     @IBOutlet weak var tableView: UITableView!
@@ -44,7 +44,8 @@ class OrderFormViewController: UIViewController, UITableViewDelegate, UITableVie
     //MARK:ViewController Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.navigationController?.navigationBarHidden = false
+        
         self.tableView.registerNib(UINib(nibName: "StartPlayerHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: StartPlayerTableViewHeaderFooterViewIdentifier)
 
         self.tableView.registerNib(UINib(nibName: "ReservePlayerHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: ReservePlayerTableViewHeaderFooterViewIdentifier)

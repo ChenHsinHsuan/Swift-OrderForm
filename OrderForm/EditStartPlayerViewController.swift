@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditStartPlayerViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate{
+class EditStartPlayerViewController: SuperViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate{
 
     @IBOutlet weak var playerNameTextField: UITextField!
     @IBOutlet weak var playerNumberPickerView: UIPickerView!

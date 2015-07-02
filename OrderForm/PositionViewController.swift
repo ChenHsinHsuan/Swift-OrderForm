@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PositionViewController: UIViewController {
+class PositionViewController: SuperViewController {
 
     var orderFormViewController:OrderFormViewController!
     

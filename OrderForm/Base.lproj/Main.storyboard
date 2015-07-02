@@ -220,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="689" y="728"/>
+            <point key="canvasLocation" x="794" y="536"/>
         </scene>
         <!--Edit Reserve Player View Controller-->
         <scene sceneID="88i-Yn-AWV">
@@ -949,12 +949,51 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="G5f-m9-QHz"/>
+                        <segue destination="uNL-CA-Ia2" kind="relationship" relationship="rootViewController" id="MJ2-Hr-rFC"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cnl-5X-0wb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="287" y="397"/>
+            <point key="canvasLocation" x="-78" y="193"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="wTU-Zc-ngg">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="uNL-CA-Ia2" customClass="MainViewController" customModule="OrderForm" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1LU-dZ-JLK"/>
+                        <viewControllerLayoutGuide type="bottom" id="4af-8b-48p"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jIO-fs-7zO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackGround" translatesAutoresizingMaskIntoConstraints="NO" id="mev-Sg-4cO">
+                                <rect key="frame" x="0.0" y="-65" width="320" height="569"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTA-3W-SNg">
+                                <rect key="frame" x="183" y="66" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="jB6-zd-YYo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mev-Sg-4cO" firstAttribute="leading" secondItem="jIO-fs-7zO" secondAttribute="leadingMargin" constant="-16" id="HWa-5j-dUS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mev-Sg-4cO" secondAttribute="trailing" constant="-16" id="Tpo-x6-H1k"/>
+                            <constraint firstItem="mev-Sg-4cO" firstAttribute="top" secondItem="1LU-dZ-JLK" secondAttribute="bottom" constant="-65" id="yL5-H4-naU"/>
+                            <constraint firstItem="4af-8b-48p" firstAttribute="top" secondItem="mev-Sg-4cO" secondAttribute="bottom" id="zfv-eg-QTJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="K70-gD-Iss"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cif-PY-3uh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="388" y="216"/>
         </scene>
         <!--更換球員-->
         <scene sceneID="01D-rR-dvS">
@@ -1128,6 +1167,7 @@
     </scenes>
     <resources>
         <image name="BG" width="320" height="568"/>
+        <image name="BackGround" width="375" height="667"/>
         <image name="baseballField" width="320" height="406"/>
     </resources>
     <color key="tintColor" red="0.91372549020000005" green="0.1176470588" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditReservePlayerViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+class EditReservePlayerViewController: SuperViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
     
     @IBOutlet weak var playerNameTextField: UITextField!
