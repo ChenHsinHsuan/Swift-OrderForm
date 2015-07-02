@@ -66,7 +66,7 @@ class EditReservePlayerViewController: SuperViewController, UIPickerViewDataSour
         }else{
             self.orderFormViewController.reservePlayers.append(thePlayer)
         }
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.popToViewController(orderFormViewController, animated: true)
     }
 
     

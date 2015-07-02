@@ -136,7 +136,7 @@ class ChangePlayerViewController: SuperViewController, UITableViewDelegate, UITa
         }
 
         if orderFormViewController.selectedIndexPath?.section == 0 &&
-            orderFormViewController.reservePlayers.count == 0 &&
+            orderFormViewController.offLinePlayers.count == 0 &&
             indexPath.section == 1 && indexPath.row == 0
         {
             return
@@ -192,8 +192,6 @@ class ChangePlayerViewController: SuperViewController, UITableViewDelegate, UITa
         
         //2.先發放到下場球員名單(只處理有背號或有姓名的)
         if count(castToOffLinePlayer.name!) > 0 || count(castToOffLinePlayer.number!) > 0 {
-            println("castToOffLinePlayer.name!:\(count(castToOffLinePlayer.name!))")
-            println("castToOffLinePlayer.number!:\(count(castToOffLinePlayer.number!))")
             orderFormViewController.offLinePlayers.append(castToOffLinePlayer)
         }
         

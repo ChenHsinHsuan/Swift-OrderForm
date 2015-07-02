@@ -84,7 +84,7 @@ class EditStartPlayerViewController: SuperViewController, UITextFieldDelegate, U
         
         self.orderFormViewController.startPlayers[self.orderFormViewController.selectedIndexPath!.row] = thePlayer
         self.orderFormViewController.selectedIndexPath = nil
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.popToViewController(orderFormViewController, animated: true)
     }
     
     //MARK: PickerView
