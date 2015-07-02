@@ -14,7 +14,7 @@ class Player: NSObject {
     var position:String?
 
     
-    init(name:String?, number:String?, position:String?){
+    init(name:String?, number:String, position:String){
         self.name = name
         self.number = number
         self.position = position

@@ -8,6 +8,26 @@
 
 import UIKit
 
+
+let StartPlayerCellIdentifier = "StartPlayerCellIdentifier"
+let CreateIdentifier = "CreateIdentifier"
+let ReservePlayerCellIdentifier = "ReservePlayerCellIdentifier"
+let StartPlayerTableViewHeaderFooterViewIdentifier = "StartPlayerTableViewHeaderFooterViewIdentifier"
+let ReservePlayerTableViewHeaderFooterViewIdentifier = "ReservePlayerTableViewHeaderFooterViewIdentifier"
+let NoPlayerCellIdentifier = "NoPlayerCellIdentifier"
+
+let Segue_EditStartPlayerIdentifier = "EditStartPlayerSegueIdentifier"
+let Segue_EditReservePlayerIdentifier = "EditReservePlayerSegueIdentifier"
+let Segue_PositionIdentifier = "PositionIdentifier"
+let Segue_ChangePlayerIdentifier = "ChangePlayerSegueIdentifier"
+
+let positionDict:[String:String] = ["P":"投", "C":"捕", "1B":"一",
+                                    "2B":"二", "3B":"三", "SS":"游",
+                                    "LF":"左", "CF":"中", "RF":"右",
+                                    "SF":"自", "DH":"指"]
+
+
+
 class OrderFormViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     //MARK:IBoutLet
@@ -15,27 +35,11 @@ class OrderFormViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var orderHitButton: UIBarButtonItem!
     
     //MARK:Variable
-    let StartPlayerCellIdentifier = "StartPlayerCellIdentifier"
-    let CreateIdentifier = "CreateIdentifier"
-    let ReservePlayerCellIdentifier = "ReservePlayerCellIdentifier"
-    let StartPlayerTableViewHeaderFooterViewIdentifier = "StartPlayerTableViewHeaderFooterViewIdentifier"
-    let ReservePlayerTableViewHeaderFooterViewIdentifier = "ReservePlayerTableViewHeaderFooterViewIdentifier"
-    
-    let Segue_EditStartPlayerIdentifier = "EditStartPlayerSegueIdentifier"
-    let Segue_EditReservePlayerIdentifier = "EditReservePlayerSegueIdentifier"
-    
-    let positionDict:[String:String] = ["P":"投", "C":"捕", "1B":"一",
-                        "2B":"二", "3B":"三", "SS":"游",
-                        "LF":"左", "CF":"中", "RF":"右",
-                        "SF":"自", "DH":"指"]
-    
-    
-    var startPlayers = [Player](count: 10, repeatedValue: Player(name: nil, number: "--", position: "N/A"))
+    var startPlayers = [Player](count: 10, repeatedValue: Player(name: "", number: "", position: ""))
     var reservePlayers = [Player]()
     var offLinePlayers = [Player]()
     var selectedIndexPath: NSIndexPath?
-    
-    
+
     
     //MARK:ViewController Life Cycle
     override func viewDidLoad() {
@@ -48,6 +52,7 @@ class OrderFormViewController: UIViewController, UITableViewDelegate, UITableVie
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.selectedIndexPath = nil
         self.tableView.reloadData()
     }
     
@@ -57,13 +62,27 @@ class OrderFormViewController: UIViewController, UITableViewDelegate, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier ==  Segue_EditStartPlayerIdentifier {
+            let destVC = segue.destinationViewController as! EditStartPlayerViewController
+            destVC.orderFormViewController = self
+        }else if segue.identifier == Segue_EditReservePlayerIdentifier {
+            let destVC = segue.destinationViewController as! EditReservePlayerViewController
+            destVC.orderFormViewController = self
+        }else if segue.identifier == Segue_PositionIdentifier {
+            let destVC = segue.destinationViewController as! PositionViewController
+            destVC.orderFormViewController = self
+        }else if segue.identifier == Segue_ChangePlayerIdentifier {
+            let destVC = segue.destinationViewController as! ChangePlayerViewController
+            destVC.orderFormViewController = self
+        }
+    }
+    
+    
     //MARK:TableView 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        var sectionCounter = 2
-        if offLinePlayers.count > 0 {
-            sectionCounter++
-        }
-        return sectionCounter
+        return 3
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -75,9 +94,13 @@ class OrderFormViewController: UIViewController, UITableViewDelegate, UITableVie
         case 1 :
             rowCounter = reservePlayers.count + 1
         case 2 :
-            rowCounter = offLinePlayers.count
+            if offLinePlayers.count == 0 {
+                rowCounter = 1
+            }else{
+                rowCounter = offLinePlayers.count
+            }
         default:
-            rowCounter = 0
+            println("no match in numberOfRowsInSection")
         }
         
         return rowCounter
@@ -92,23 +115,34 @@ class OrderFormViewController: UIViewController, UITableViewDelegate, UITableVie
         
             cell.playerNameLabel.text = thePlayer.name
             cell.playerNumberLabel.text = thePlayer.number
-            cell.playerPositionLabel.text = positionDict[thePlayer.position!]
+//            cell.playerPositionLabel.text = positionDict[thePlayer.position!]
+            cell.playerPositionLabel.text = thePlayer.position
             return cell
-       }
-    
-
-    
-        if reservePlayers.count > 0 && indexPath.row < reservePlayers.count {
+       } else if indexPath.section == 1 {
+            if reservePlayers.count > 0 && indexPath.row < reservePlayers.count {
+                let cell = self.tableView.dequeueReusableCellWithIdentifier(ReservePlayerCellIdentifier) as! ReservePlayerTableViewCell
+                let thePlayer = reservePlayers[indexPath.row]
+                cell.playerNameLabel.text = thePlayer.name
+                cell.playerNumberLabel.text = thePlayer.number
+                return cell
+            }
+            
+            let cell = self.tableView.dequeueReusableCellWithIdentifier(CreateIdentifier) as! UITableViewCell
+            return cell
+        }
+        
+        if offLinePlayers.count > 0 {
             let cell = self.tableView.dequeueReusableCellWithIdentifier(ReservePlayerCellIdentifier) as! ReservePlayerTableViewCell
-            let thePlayer = reservePlayers[indexPath.row]
+            let thePlayer = offLinePlayers[indexPath.row]
             cell.playerNameLabel.text = thePlayer.name
             cell.playerNumberLabel.text = thePlayer.number
             return cell
         }
-
-        let cell = self.tableView.dequeueReusableCellWithIdentifier(CreateIdentifier) as! UITableViewCell
-        return cell
         
+        //沒有球員
+        let cell = self.tableView.dequeueReusableCellWithIdentifier(NoPlayerCellIdentifier) as! NoPlayerTableViewCell
+        cell.titleLabel.text = "無已下場球員"
+        return cell
         
     }
     
@@ -122,7 +156,7 @@ class OrderFormViewController: UIViewController, UITableViewDelegate, UITableVie
         case 2 :
             title = "下場"
         default:
-            title = ""
+            println("no match in titleForHeaderInSection")
         }
         return title
     }
@@ -130,28 +164,22 @@ class OrderFormViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
             let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(StartPlayerTableViewHeaderFooterViewIdentifier) as? StartPlayerHeaderView
+            headerView?.sectionTitleLabel.text = "先發選手"
             return headerView
         }
         
+
+        let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(ReservePlayerTableViewHeaderFooterViewIdentifier) as? ReservePlayerHeaderView
         if section == 1 {
-            let headerView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(ReservePlayerTableViewHeaderFooterViewIdentifier) as? ReservePlayerHeaderView
-            return headerView
+            headerView?.sectionTitleLabel.text = "預備選手,共\(reservePlayers.count)名"
+        }else{
+            headerView?.sectionTitleLabel.text = "已下場選手,共\(offLinePlayers.count)名"
         }
-        
-        let headerView = tableView.tableHeaderView as? UITableViewHeaderFooterView
         return headerView
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 44
-        }
-        
-        if section == 1 {
-            return 44
-        }
-        
-        return 22
+        return 44
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -192,6 +220,23 @@ class OrderFormViewController: UIViewController, UITableViewDelegate, UITableVie
         return true
     }
     
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if reservePlayers.count == 0 && indexPath.section == 1 && indexPath.row == 0 {
+            return false
+        }
+        
+        if indexPath.section == 1 && indexPath.row == reservePlayers.count {
+            return false
+        }
+        
+        if offLinePlayers.count == 0 && indexPath.section == 2 && indexPath.row == 0 {
+            return false
+        }
+        
+        
+        return true
+    }
+    
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 //        if editingStyle == UITableViewCellEditingStyle.Delete {
@@ -211,12 +256,22 @@ class OrderFormViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        
+        
+        if reservePlayers.count == 0 && indexPath.section == 1 && indexPath.row == 0 {
+            return []
+        }
+        
+        if offLinePlayers.count == 0 && indexPath.section == 2 && indexPath.row == 0 {
+            return []
+        }
+        
         //delete按鈕自己做
         var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "清除", handler: {
             (action:UITableViewRowAction! , indexPath:NSIndexPath!) -> Void in
             switch indexPath.section {
             case 0:
-                self.startPlayers[indexPath.row] = Player(name: "", number: "--", position:"")
+                self.startPlayers[indexPath.row] = Player(name: "", number: "", position:"")
             case 1:
                 self.reservePlayers.removeAtIndex(indexPath.row)
             case 2:
@@ -233,11 +288,11 @@ class OrderFormViewController: UIViewController, UITableViewDelegate, UITableVie
             (action:UITableViewRowAction! , indexPath:NSIndexPath!) -> Void in
             if indexPath.section == 0 {
                 self.selectedIndexPath = indexPath
-                self.performSegueWithIdentifier(self.Segue_EditStartPlayerIdentifier, sender: self)
+                self.performSegueWithIdentifier(Segue_EditStartPlayerIdentifier, sender: self)
             }else if indexPath.section == 1 {
                 if indexPath.row != self.reservePlayers.count {
                     self.selectedIndexPath = indexPath
-                    self.performSegueWithIdentifier(self.Segue_EditReservePlayerIdentifier, sender: self)
+                    self.performSegueWithIdentifier(Segue_EditReservePlayerIdentifier, sender: self)
                 }
             }
         })
@@ -246,19 +301,23 @@ class OrderFormViewController: UIViewController, UITableViewDelegate, UITableVie
         //更換球員
         var changeAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "更換", handler: {
             (action:UITableViewRowAction! , indexPath:NSIndexPath!) -> Void in
+            
+            self.selectedIndexPath = indexPath
+            self.performSegueWithIdentifier(Segue_ChangePlayerIdentifier, sender: self)
+            
         })
         changeAction.backgroundColor = UIColor(red:1.0, green:0.32, blue:0.32, alpha:1)
         
         
         if indexPath.section == 0 {
-            return [changeAction, editAction, deleteAction]
-        }
-        
-        if indexPath.section == 1 {
-            return [changeAction, editAction, deleteAction]
+            changeAction.title = "下場"
+        }else if indexPath.section == 1 {
+            changeAction.title = "上場"
+        }else {
+            changeAction.title = "再上場"
         }
 
-        return []
+        return [changeAction, editAction, deleteAction]
     }
     
     //MARK: IBAction
@@ -270,5 +329,11 @@ class OrderFormViewController: UIViewController, UITableViewDelegate, UITableVie
             sender.title = "棒次"
         }
     }
+    
+    
+    @IBAction func createReservePlayerButtonPressed(sender: AnyObject) {
+        performSegueWithIdentifier(Segue_EditReservePlayerIdentifier, sender: self)
+    }
+    
 }
 

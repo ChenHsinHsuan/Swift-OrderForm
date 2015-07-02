@@ -31,10 +31,10 @@ class EditStartPlayerViewController: UIViewController, UITextFieldDelegate, UIPi
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.orderFormViewController = self.navigationController?.childViewControllers[0] as! OrderFormViewController
+        
+        
         self.navigationItem.title = "第\(self.orderFormViewController.selectedIndexPath!.row+1)棒"
-        
-        
+
         if let indexPath = self.orderFormViewController.selectedIndexPath {
             self.editPlayer = self.orderFormViewController.startPlayers[self.orderFormViewController.selectedIndexPath!.row]
             self.playerNameTextField.text = editPlayer?.name
@@ -72,7 +72,7 @@ class EditStartPlayerViewController: UIViewController, UITextFieldDelegate, UIPi
         if count(number) == 1 {
             number = "0\(number)"
         }
-        var position = "N/A"
+        var position = ""
         for theButton in self.positionButtons {
             if theButton.selected {
                 position = theButton.titleLabel!.text!

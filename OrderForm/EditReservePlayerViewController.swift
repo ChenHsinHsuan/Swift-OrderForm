@@ -22,6 +22,12 @@ class EditReservePlayerViewController: UIViewController, UIPickerViewDataSource,
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if let indexPath = self.orderFormViewController.selectedIndexPath {
+            self.editPlayer = self.orderFormViewController.reservePlayers[self.orderFormViewController.selectedIndexPath!.row]
+            self.playerNameTextField.text = editPlayer?.name
+            self.playerNumberPickerView.selectRow(self.editPlayer!.number!.toInt()!, inComponent: 0, animated: true)
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,14 +37,7 @@ class EditReservePlayerViewController: UIViewController, UIPickerViewDataSource,
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.orderFormViewController = self.navigationController?.childViewControllers[0] as! OrderFormViewController
-
-        if let indexPath = self.orderFormViewController.selectedIndexPath {
-            self.editPlayer = self.orderFormViewController.reservePlayers[self.orderFormViewController.selectedIndexPath!.row]
-            self.playerNameTextField.text = editPlayer?.name
-            self.playerNumberPickerView.selectRow(self.editPlayer!.number!.toInt()!, inComponent: 0, animated: true)
-        }
-    }
+            }
 
 
     /*
@@ -59,7 +58,7 @@ class EditReservePlayerViewController: UIViewController, UIPickerViewDataSource,
             number = "0\(number)"
         }
         
-        let thePlayer = Player(name: name, number: number, position: nil)
+        let thePlayer = Player(name: name, number: number, position: "")
         
         if self.orderFormViewController.selectedIndexPath != nil {
         self.orderFormViewController.reservePlayers[self.orderFormViewController.selectedIndexPath!.row] = thePlayer

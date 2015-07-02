@@ -1,24 +1,20 @@
 //
-//  ReservePlayerTableViewCell.swift
+//  NoPlayerTableViewCell.swift
 //  OrderForm
 //
-//  Created by Chen Hsin Hsuan on 2015/6/30.
+//  Created by Chen Hsin Hsuan on 2015/7/2.
 //  Copyright (c) 2015年 AirconTW. All rights reserved.
 //
 
 import UIKit
 
-class ReservePlayerTableViewCell: UITableViewCell {
+class NoPlayerTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var playerNameLabel: UILabel!
-    @IBOutlet weak var playerNumberLabel: UILabel!
-    
+    @IBOutlet weak var titleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
     }
-    
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

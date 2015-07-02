@@ -10,6 +10,7 @@ import UIKit
 
 class StartPlayerHeaderView: UITableViewHeaderFooterView {
 
+    @IBOutlet weak var sectionTitleLabel: UILabel!
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
