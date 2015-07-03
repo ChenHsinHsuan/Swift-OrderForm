@@ -15,17 +15,25 @@ class EditReservePlayerViewController: SuperViewController, UIPickerViewDataSour
     @IBOutlet weak var playerNumberPickerView: UIPickerView!
     
     
-    var orderFormViewController: OrderFormViewController!
+    var fromViewController: UIViewController!
     var editPlayer:Player?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        if let indexPath = self.orderFormViewController.selectedIndexPath {
-            self.editPlayer = self.orderFormViewController.reservePlayers[self.orderFormViewController.selectedIndexPath!.row]
-            self.playerNameTextField.text = editPlayer?.name
-            self.playerNumberPickerView.selectRow(self.editPlayer!.number!.toInt()!, inComponent: 0, animated: true)
+        if let orderFormViewController = fromViewController as? OrderFormViewController {
+            if let indexPath = orderFormViewController.selectedIndexPath {
+                self.editPlayer = orderFormViewController.reservePlayers[orderFormViewController.selectedIndexPath!.row]
+                self.playerNameTextField.text = editPlayer?.name
+                self.playerNumberPickerView.selectRow(self.editPlayer!.number!.toInt()!, inComponent: 0, animated: true)
+            }
+        }else if let playerListTableViewController = fromViewController as? PlayerListTableViewController {
+            if let indexPath = playerListTableViewController.selectedIndexPath {
+                self.editPlayer = playerListTableViewController.players[playerListTableViewController.selectedIndexPath!.row]
+                self.playerNameTextField.text = editPlayer?.name
+                self.playerNumberPickerView.selectRow(self.editPlayer!.number!.toInt()!, inComponent: 0, animated: true)
+            }
         }
 
     }
@@ -34,10 +42,6 @@ class EditReservePlayerViewController: SuperViewController, UIPickerViewDataSour
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-            }
 
 
     /*
@@ -58,15 +62,27 @@ class EditReservePlayerViewController: SuperViewController, UIPickerViewDataSour
             number = "0\(number)"
         }
         
-        let thePlayer = Player(name: name, number: number, position: "")
+        var thePlayer = Player(name: name, number: number, position: "")
         
-        if self.orderFormViewController.selectedIndexPath != nil {
-        self.orderFormViewController.reservePlayers[self.orderFormViewController.selectedIndexPath!.row] = thePlayer
-            self.orderFormViewController.selectedIndexPath = nil
-        }else{
-            self.orderFormViewController.reservePlayers.append(thePlayer)
+        if let orderFormViewController = fromViewController as? OrderFormViewController {
+            if orderFormViewController.selectedIndexPath != nil {
+            orderFormViewController.reservePlayers[orderFormViewController.selectedIndexPath!.row] = thePlayer
+                orderFormViewController.selectedIndexPath = nil
+            }else{
+                orderFormViewController.reservePlayers.append(thePlayer)
+            }
+            self.navigationController?.popToViewController(orderFormViewController, animated: true)
+        }else if let playerListTableViewController = fromViewController as? PlayerListTableViewController {
+            
+            if playerListTableViewController.selectedIndexPath != nil {
+                thePlayer = playerListTableViewController.players[playerListTableViewController.selectedIndexPath!.row]
+                DB.executeUpdate("update T_PLAYER set name = ?, number = ? where id = ?;", withArgumentsInArray: [name, number, thePlayer.id!])
+            }else{
+                DB.executeUpdate("insert into T_PLAYER (name, number) values (?, ?);", withArgumentsInArray: [name, number])
+            }
+            self.navigationController?.popViewControllerAnimated(true)
         }
-        self.navigationController?.popToViewController(orderFormViewController, animated: true)
+
     }
 
     

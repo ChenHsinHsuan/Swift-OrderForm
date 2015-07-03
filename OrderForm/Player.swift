@@ -9,6 +9,7 @@
 import UIKit
 
 class Player: NSObject {
+    var id:String?
     var name:String?
     var number:String?
     var position:String?

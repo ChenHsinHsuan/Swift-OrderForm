@@ -28,11 +28,10 @@ let positionDict:[String:String] = ["P":"投", "C":"捕", "1B":"一",
 
 
 
-class OrderFormViewController: SuperViewController, UITableViewDelegate, UITableViewDataSource {
+class OrderFormViewController: SuperViewController, UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate {
 
     //MARK:IBoutLet
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var orderHitButton: UIBarButtonItem!
     
     //MARK:Variable
     var startPlayers = [Player](count: 10, repeatedValue: Player(name: "", number: "", position: ""))
@@ -49,6 +48,7 @@ class OrderFormViewController: SuperViewController, UITableViewDelegate, UITable
         self.tableView.registerNib(UINib(nibName: "StartPlayerHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: StartPlayerTableViewHeaderFooterViewIdentifier)
 
         self.tableView.registerNib(UINib(nibName: "ReservePlayerHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: ReservePlayerTableViewHeaderFooterViewIdentifier)
+        
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -70,7 +70,7 @@ class OrderFormViewController: SuperViewController, UITableViewDelegate, UITable
             destVC.orderFormViewController = self
         }else if segue.identifier == Segue_EditReservePlayerIdentifier {
             let destVC = segue.destinationViewController as! EditReservePlayerViewController
-            destVC.orderFormViewController = self
+            destVC.fromViewController = self
         }else if segue.identifier == Segue_PositionIdentifier {
             let destVC = segue.destinationViewController as! PositionViewController
             destVC.orderFormViewController = self
@@ -321,20 +321,48 @@ class OrderFormViewController: SuperViewController, UITableViewDelegate, UITable
         return [changeAction, editAction, deleteAction]
     }
     
+
     //MARK: IBAction
-    @IBAction func hitOrderButtonPressed(sender: UIBarButtonItem) {
+    @IBAction func sortButtonPressed(sender: UIBarButtonItem) {
         self.tableView.editing = !self.tableView.editing
         if self.tableView.editing {
-            sender.title = "完成"
+            sender.image = UIImage(named: "cross")
         }else{
-            sender.title = "棒次"
+            sender.image = UIImage(named: "sort")
         }
+    }
+
+    @IBAction func menuButtonPressed(sender: UIBarButtonItem) {
+        if self.tableView.editing {
+            self.tableView.editing = false
+            sender.image = UIImage(named: "sort")
+        }
+        let actionSheet = UIActionSheet(title: "選單", delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: "資料清空", otherButtonTitles: "回到主選單", "守備地圖")
+        actionSheet.showInView(self.view)
     }
     
     
     @IBAction func createReservePlayerButtonPressed(sender: AnyObject) {
         performSegueWithIdentifier(Segue_EditReservePlayerIdentifier, sender: self)
     }
+    
+    
+    //MARK: UIActionSheetDelegate
+    
+    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+        switch buttonIndex {
+        case 1:
+            return
+        case 2:
+            self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+        case 3:
+            performSegueWithIdentifier(Segue_PositionIdentifier, sender: self)
+        default:
+            return
+        }
+        
+    }
+    
     
 }
 

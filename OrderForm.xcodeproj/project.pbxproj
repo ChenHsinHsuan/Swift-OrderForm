@@ -28,6 +28,8 @@
 		8FF71A261B45163A0001E796 /* NoPlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF71A251B45163A0001E796 /* NoPlayerTableViewCell.swift */; };
 		8FF71A281B45330F0001E796 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF71A271B45330F0001E796 /* MainViewController.swift */; };
 		8FF71A2A1B4536170001E796 /* SuperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF71A291B4536170001E796 /* SuperViewController.swift */; };
+		8FF71A3E1B4637240001E796 /* PlayerListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF71A3D1B4637240001E796 /* PlayerListTableViewController.swift */; };
+		C0F99913EA60619AE1D4040A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9CCFEFCD284FD9432874FD7 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28E069BA0A19BDE4F1470205 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8F1512D41B426F3200289665 /* OrderForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrderForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F1512D81B426F3200289665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F1512D91B426F3200289665 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +69,11 @@
 		8FF71A251B45163A0001E796 /* NoPlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoPlayerTableViewCell.swift; sourceTree = "<group>"; };
 		8FF71A271B45330F0001E796 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8FF71A291B4536170001E796 /* SuperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperViewController.swift; sourceTree = "<group>"; };
+		8FF71A2B1B456C060001E796 /* OrderForm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OrderForm-Bridging-Header.h"; sourceTree = "<group>"; };
+		8FF71A2F1B4571FE0001E796 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		8FF71A3D1B4637240001E796 /* PlayerListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerListTableViewController.swift; sourceTree = "<group>"; };
+		E298C22B17F6F39C49AAA989 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E9CCFEFCD284FD9432874FD7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0F99913EA60619AE1D4040A /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,12 +95,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		82F2189FAA8933AB5EC72F8D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E298C22B17F6F39C49AAA989 /* Pods.debug.xcconfig */,
+				28E069BA0A19BDE4F1470205 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		87D56C28ABAEA5F6D309CCEC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8FF71A2F1B4571FE0001E796 /* libsqlite3.dylib */,
+				E9CCFEFCD284FD9432874FD7 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8F1512CB1B426F3200289665 = {
 			isa = PBXGroup;
 			children = (
 				8F1512D61B426F3200289665 /* OrderForm */,
 				8F1512EC1B426F3200289665 /* OrderFormTests */,
 				8F1512D51B426F3200289665 /* Products */,
+				82F2189FAA8933AB5EC72F8D /* Pods */,
+				87D56C28ABAEA5F6D309CCEC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,10 +136,11 @@
 		8F1512D61B426F3200289665 /* OrderForm */ = {
 			isa = PBXGroup;
 			children = (
+				8F1512D91B426F3200289665 /* AppDelegate.swift */,
+				8FF71A2B1B456C060001E796 /* OrderForm-Bridging-Header.h */,
 				8F1513021B4282EB00289665 /* Controllers */,
 				8F1512FF1B427AA800289665 /* Classes */,
 				8F1512FA1B4274FE00289665 /* Views */,
-				8F1512D91B426F3200289665 /* AppDelegate.swift */,
 				8F1512DD1B426F3200289665 /* Main.storyboard */,
 				8F1512E01B426F3200289665 /* Images.xcassets */,
 				8F1512E21B426F3200289665 /* LaunchScreen.xib */,
@@ -163,14 +193,15 @@
 		8F1513021B4282EB00289665 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8FF71A291B4536170001E796 /* SuperViewController.swift */,
+				8FF71A271B45330F0001E796 /* MainViewController.swift */,
+				8FF71A211B44E6BC0001E796 /* MainNavigationViewController.swift */,
 				8F1513031B42859F00289665 /* EditStartPlayerViewController.swift */,
 				8F1512DB1B426F3200289665 /* OrderFormViewController.swift */,
 				8F1513051B42B7D400289665 /* EditReservePlayerViewController.swift */,
 				8FF71A1F1B44C9DC0001E796 /* PositionViewController.swift */,
-				8FF71A211B44E6BC0001E796 /* MainNavigationViewController.swift */,
 				8FF71A231B450CF30001E796 /* ChangePlayerTableViewController.swift */,
-				8FF71A271B45330F0001E796 /* MainViewController.swift */,
-				8FF71A291B4536170001E796 /* SuperViewController.swift */,
+				8FF71A3D1B4637240001E796 /* PlayerListTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -196,10 +227,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8F1512F31B426F3200289665 /* Build configuration list for PBXNativeTarget "OrderForm" */;
 			buildPhases = (
+				6F2594270D2EBB42ED7525AF /* Check Pods Manifest.lock */,
 				8F1512D01B426F3200289665 /* Sources */,
 				8F1512D11B426F3200289665 /* Frameworks */,
 				8F1512D21B426F3200289665 /* Resources */,
 				8F1512F91B426F3900289665 /* ShellScript */,
+				27DB70A244AD79A313618E52 /* Embed Pods Frameworks */,
+				DE3B07E395512B2E586C3177 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -289,6 +323,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		27DB70A244AD79A313618E52 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F2594270D2EBB42ED7525AF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		8F1512F91B426F3900289665 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -301,6 +365,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+		DE3B07E395512B2E586C3177 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -323,6 +402,7 @@
 				8FF71A201B44C9DC0001E796 /* PositionViewController.swift in Sources */,
 				8FF71A221B44E6BC0001E796 /* MainNavigationViewController.swift in Sources */,
 				8F1513061B42B7D400289665 /* EditReservePlayerViewController.swift in Sources */,
+				8FF71A3E1B4637240001E796 /* PlayerListTableViewController.swift in Sources */,
 				8F1512DA1B426F3200289665 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,23 +530,30 @@
 		};
 		8F1512F41B426F3200289665 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E298C22B17F6F39C49AAA989 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = OrderForm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OrderForm/OrderForm-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		8F1512F51B426F3200289665 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28E069BA0A19BDE4F1470205 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = OrderForm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OrderForm/OrderForm-Bridging-Header.h";
 			};
 			name = Release;
 		};

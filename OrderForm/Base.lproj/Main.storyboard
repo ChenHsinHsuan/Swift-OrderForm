@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JF5-r9-VmR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uNL-CA-Ia2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -196,52 +196,52 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="攻守順序表" id="qPp-Ds-Ix9">
-                        <barButtonItem key="leftBarButtonItem" title="棒次" id="cZu-Vf-cnx">
+                        <barButtonItem key="leftBarButtonItem" image="menu" style="done" id="cZu-Vf-cnx">
                             <color key="tintColor" red="0.91372549020000005" green="0.1176470588" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="hitOrderButtonPressed:" destination="BYZ-38-t0r" id="8lU-5a-3qc"/>
+                                <action selector="menuButtonPressed:" destination="BYZ-38-t0r" id="WDt-DZ-zqv"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="總覽" id="yr9-o7-9h9">
+                        <barButtonItem key="rightBarButtonItem" image="sort" id="fZS-lf-j7I">
                             <color key="tintColor" red="0.91372549020000005" green="0.1176470588" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="2hi-qY-8m6" kind="show" identifier="PositionIdentifier" id="nyd-qa-oOf"/>
+                                <action selector="sortButtonPressed:" destination="BYZ-38-t0r" id="qHB-b8-S9E"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="orderHitButton" destination="cZu-Vf-cnx" id="lv9-Ft-6Hw"/>
                         <outlet property="tableView" destination="Yuu-dq-rdu" id="cXW-Cv-dGh"/>
                         <segue destination="SHU-R0-vhr" kind="show" identifier="EditStartPlayerSegueIdentifier" id="YzB-DB-z2L"/>
                         <segue destination="HLf-qf-2kN" kind="show" identifier="EditReservePlayerSegueIdentifier" id="EAu-7k-2kB"/>
                         <segue destination="sKq-y0-Xfb" kind="show" identifier="ChangePlayerSegueIdentifier" id="wiH-Iz-vf7"/>
+                        <segue destination="2hi-qY-8m6" kind="show" identifier="PositionIdentifier" id="ETW-ez-rSu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="794" y="536"/>
+            <point key="canvasLocation" x="1109" y="343"/>
         </scene>
-        <!--Edit Reserve Player View Controller-->
+        <!--球員編輯-->
         <scene sceneID="88i-Yn-AWV">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="HLf-qf-2kN" customClass="EditReservePlayerViewController" customModule="OrderForm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HLf-qf-2kN" customClass="EditReservePlayerViewController" customModule="OrderForm" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rpR-pN-pxP"/>
                         <viewControllerLayoutGuide type="bottom" id="YxR-8g-JG1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="90c-Sc-Qb5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="球員背號" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1d5-vJ-6GI">
-                                <rect key="frame" x="16" y="78" width="80" height="24"/>
+                                <rect key="frame" x="16" y="142" width="80" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ym0-wQ-9gF">
-                                <rect key="frame" x="16" y="110" width="288" height="100"/>
+                                <rect key="frame" x="16" y="174" width="288" height="100"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xos-iQ-Kdv">
                                         <rect key="frame" x="-16" y="-40" width="320" height="180"/>
@@ -262,7 +262,7 @@
                                 </constraints>
                             </scrollView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="請輸入姓名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h74-DY-tqp">
-                                <rect key="frame" x="16" y="8" width="288" height="48"/>
+                                <rect key="frame" x="16" y="72" width="288" height="48"/>
                                 <color key="tintColor" red="0.93333333330000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="zYB-0z-YCb"/>
@@ -291,7 +291,7 @@
                             <outletCollection property="gestureRecognizers" destination="J6Q-Xe-cyx" appends="YES" id="zMB-g1-iQ2"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="vjA-n3-uun">
+                    <navigationItem key="navigationItem" title="球員編輯" id="vjA-n3-uun">
                         <barButtonItem key="rightBarButtonItem" title="儲存" id="jzq-AF-ZvX">
                             <color key="tintColor" red="0.91372549020000005" green="0.1176470588" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -312,7 +312,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1672" y="452"/>
+            <point key="canvasLocation" x="1690" y="-623"/>
         </scene>
         <!--Position View Controller-->
         <scene sceneID="iTI-vF-f1i">
@@ -533,9 +533,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQB-c9-KJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1234" y="-566"/>
+            <point key="canvasLocation" x="1690" y="882"/>
         </scene>
-        <!--Edit Start Player View Controller-->
+        <!--先發編輯-->
         <scene sceneID="tZL-AQ-BUw">
             <objects>
                 <viewController id="SHU-R0-vhr" customClass="EditStartPlayerViewController" customModule="OrderForm" customModuleProvider="target" sceneMemberID="viewController">
@@ -900,7 +900,7 @@
                             <outletCollection property="gestureRecognizers" destination="20F-EA-rra" appends="YES" id="ut6-TH-39n"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="UaX-CP-7le">
+                    <navigationItem key="navigationItem" title="先發編輯" id="UaX-CP-7le">
                         <barButtonItem key="rightBarButtonItem" title="儲存" id="dbo-kg-i87">
                             <color key="tintColor" red="0.91372549020000005" green="0.1176470588" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -934,7 +934,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1234" y="156.5"/>
+            <point key="canvasLocation" x="1696" y="110.5"/>
         </scene>
         <!--Main Navigation View Controller-->
         <scene sceneID="TnR-qX-EKh">
@@ -949,12 +949,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="uNL-CA-Ia2" kind="relationship" relationship="rootViewController" id="MJ2-Hr-rFC"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="vrJ-xS-u3E"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cnl-5X-0wb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-78" y="193"/>
+            <point key="canvasLocation" x="695" y="343"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="wTU-Zc-ngg">
@@ -965,19 +965,29 @@
                         <viewControllerLayoutGuide type="bottom" id="4af-8b-48p"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jIO-fs-7zO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackGround" translatesAutoresizingMaskIntoConstraints="NO" id="mev-Sg-4cO">
-                                <rect key="frame" x="0.0" y="-65" width="320" height="569"/>
+                                <rect key="frame" x="0.0" y="-45" width="320" height="613"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTA-3W-SNg">
-                                <rect key="frame" x="183" y="66" width="46" height="30"/>
+                                <rect key="frame" x="100" y="326" width="123" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <state key="normal" title="毆打單">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="JF5-r9-VmR" kind="presentation" modalTransitionStyle="crossDissolve" id="HNk-2f-DIf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQq-CR-RDM">
+                                <rect key="frame" x="116" y="120" width="46" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="jB6-zd-YYo"/>
+                                    <segue destination="xFd-VO-JPa" kind="presentation" modalTransitionStyle="crossDissolve" id="Bmy-wP-xzf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -990,10 +1000,84 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="K70-gD-Iss"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cif-PY-3uh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="388" y="216"/>
+            <point key="canvasLocation" x="136" y="-159"/>
+        </scene>
+        <!--球員清單-->
+        <scene sceneID="5TU-Hk-NJh">
+            <objects>
+                <tableViewController id="Ed0-D0-Vgf" customClass="PlayerListTableViewController" customModule="OrderForm" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dKT-s9-abp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReservePlayerCellIdentifier" id="1FS-Cn-KSX" customClass="ReservePlayerTableViewCell" customModule="OrderForm" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1FS-Cn-KSX" id="w6Q-HA-rSQ">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OsY-F9-QQW">
+                                            <rect key="frame" x="47" y="5" width="150" height="33.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="150" id="HMf-ot-Q09"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="28"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="INP-Md-sHX">
+                                            <rect key="frame" x="280" y="5" width="32" height="33.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="32" id="kmu-oa-v3u"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="28"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="INP-Md-sHX" firstAttribute="trailing" secondItem="w6Q-HA-rSQ" secondAttribute="trailingMargin" id="CWS-Zf-zlQ"/>
+                                        <constraint firstAttribute="centerY" secondItem="INP-Md-sHX" secondAttribute="centerY" id="Cvi-Pt-rhd"/>
+                                        <constraint firstItem="OsY-F9-QQW" firstAttribute="leading" secondItem="w6Q-HA-rSQ" secondAttribute="leadingMargin" constant="39" id="IN2-56-tlU"/>
+                                        <constraint firstAttribute="centerY" secondItem="OsY-F9-QQW" secondAttribute="centerY" id="Y6p-ns-XSJ"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="playerNameLabel" destination="OsY-F9-QQW" id="u9j-OM-NbU"/>
+                                    <outlet property="playerNumberLabel" destination="INP-Md-sHX" id="UfG-eQ-6HC"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Ed0-D0-Vgf" id="KBt-Bs-J2R"/>
+                            <outlet property="delegate" destination="Ed0-D0-Vgf" id="fuI-0u-bYE"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="球員清單" id="vcZ-Vj-U9w">
+                        <barButtonItem key="leftBarButtonItem" image="Back" id="eIR-ZT-jQH">
+                            <connections>
+                                <action selector="backButtonPressed:" destination="Ed0-D0-Vgf" id="5cY-4x-j6k"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="s72-kN-bYb">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="Ed0-D0-Vgf" id="hqF-kN-6jG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="HLf-qf-2kN" kind="show" identifier="EditPlayerSegueIdentifier" id="IGA-iW-52d"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="in5-eC-y4U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1129" y="-623"/>
         </scene>
         <!--更換球員-->
         <scene sceneID="01D-rR-dvS">
@@ -1162,13 +1246,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L70-Pm-koG" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1211" y="1109"/>
+            <point key="canvasLocation" x="1109" y="1017"/>
+        </scene>
+        <!--Main Navigation View Controller-->
+        <scene sceneID="fO4-Qi-boY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xFd-VO-JPa" customClass="MainNavigationViewController" customModule="OrderForm" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="q6T-zu-e6u">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ed0-D0-Vgf" kind="relationship" relationship="rootViewController" id="X2J-Ke-PWg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rgb-Z8-vNV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="687" y="-623"/>
         </scene>
     </scenes>
     <resources>
         <image name="BG" width="320" height="568"/>
+        <image name="Back" width="23" height="24"/>
         <image name="BackGround" width="375" height="667"/>
         <image name="baseballField" width="320" height="406"/>
+        <image name="menu" width="22" height="15"/>
+        <image name="sort" width="22" height="22"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="IGA-iW-52d"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.91372549020000005" green="0.1176470588" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>
