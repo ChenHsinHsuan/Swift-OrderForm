@@ -20,4 +20,9 @@ class Player: NSObject {
         self.number = number
         self.position = position
     }
+    
+    override init(){
+        
+    }
+    
 }

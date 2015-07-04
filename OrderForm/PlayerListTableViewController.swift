@@ -27,24 +27,7 @@ class PlayerListTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        players = [Player]()
-        if let rs = DB.executeQuery("select * from T_PLAYER", withArgumentsInArray: nil) {
-            var thePlayer:Player!
-            var id:String?
-            var name:String?
-            var number:String?
-            while rs.next() {
-                id = rs.stringForColumn("id")
-                name = rs.stringForColumn("name")
-                number = rs.stringForColumn("number")
-                thePlayer = Player(name: name, number: number!, position: "")
-                thePlayer.id = id
-                
-                self.players.append(thePlayer)
-            }
-        } else {
-            println("select failed: \(DB.lastErrorMessage())")
-        }
+        players = shareAppDelegate.findPlayerList()
         self.tableView.reloadData()
     }
 
@@ -90,17 +73,6 @@ class PlayerListTableViewController: UITableViewController {
 
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let thePlayer = self.players[indexPath.row]
-        
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            
-            if DB.executeUpdate("delete from T_PLAYER where id = ? ;", withArgumentsInArray: [thePlayer.id!]){
-                self.players.removeAtIndex(indexPath.row)
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            }
-        }
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -108,6 +80,20 @@ class PlayerListTableViewController: UITableViewController {
         performSegueWithIdentifier(Segue_EditPlayer, sender: self)
     }
 
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        //delete按鈕自己做
+        var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "清除", handler: {
+            (action:UITableViewRowAction! , indexPath:NSIndexPath!) -> Void in
+            let thePlayer = self.players[indexPath.row]
+            if DB.executeUpdate("delete from T_PLAYER where id = ? ;", withArgumentsInArray: [thePlayer.id!]){
+                self.players.removeAtIndex(indexPath.row)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
+        })
+        deleteAction.backgroundColor = UIColor(red:0.84, green:0.0, blue:0.0, alpha:1)
+
+        return [deleteAction]
+    }
 
     /*
     // Override to support rearranging the table view.

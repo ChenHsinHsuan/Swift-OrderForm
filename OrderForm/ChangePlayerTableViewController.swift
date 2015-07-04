@@ -24,6 +24,7 @@ class ChangePlayerViewController: SuperViewController, UITableViewDelegate, UITa
         
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -191,7 +192,7 @@ class ChangePlayerViewController: SuperViewController, UITableViewDelegate, UITa
         
         
         //2.先發放到下場球員名單(只處理有背號或有姓名的)
-        if count(castToOffLinePlayer.name!) > 0 || count(castToOffLinePlayer.number!) > 0 {
+        if castToOffLinePlayer.name != nil || castToOffLinePlayer.number != nil {
             orderFormViewController.offLinePlayers.append(castToOffLinePlayer)
         }
         

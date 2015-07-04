@@ -27,9 +27,15 @@ class PositionViewController: SuperViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        
         for thePlayer in self.orderFormViewController.startPlayers {
-            switch thePlayer.position ?? ""  {
+            
+            if thePlayer.position == nil {
+                continue
+            }
+            
+            switch thePlayer.position! {
             case "P":
                 PLabel.text = thePlayer.number!+" "+thePlayer.name!
             case "C":
@@ -53,7 +59,7 @@ class PositionViewController: SuperViewController {
             case "DH":
                 DHLabel.text = thePlayer.number!+" "+thePlayer.name!
             default:
-                println("no match position")
+                continue
             }
 
         }

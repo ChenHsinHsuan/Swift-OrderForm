@@ -8,6 +8,9 @@
 
 import UIKit
 import FMDB
+import Fabric
+import Crashlytics
+
 
 let DBNAME = "orderform.sqlite"
 let DB_FOLDER = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
@@ -22,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+
+        Fabric.with([Crashlytics()])
+
         
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
 
@@ -59,8 +65,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     //MARK:FMDB
-    
-
+    func findPlayerList() -> [Player]{
+        var players = [Player]()
+        if let rs = DB.executeQuery("select * from T_PLAYER", withArgumentsInArray: nil) {
+            var thePlayer:Player!
+            var id:String?
+            var name:String?
+            var number:String?
+            while rs.next() {
+                id = rs.stringForColumn("id")
+                name = rs.stringForColumn("name")
+                number = rs.stringForColumn("number")
+                thePlayer = Player(name: name, number: number!, position: "")
+                thePlayer.id = id
+                
+                players.append(thePlayer)
+            }
+        } else {
+            println("select failed: \(DB.lastErrorMessage())")
+        }
+        return players
+    }
 
 }
 

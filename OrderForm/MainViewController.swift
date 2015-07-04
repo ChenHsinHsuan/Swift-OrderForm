@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+let shareAppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
 class MainViewController: SuperViewController {
 
     override func viewDidLoad() {

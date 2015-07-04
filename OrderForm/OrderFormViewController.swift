@@ -27,14 +27,16 @@ let positionDict:[String:String] = ["P":"投", "C":"捕", "1B":"一",
                                     "SF":"自", "DH":"指"]
 
 
-
 class OrderFormViewController: SuperViewController, UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate {
 
     //MARK:IBoutLet
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var rightTabBarButton: UIBarButtonItem!
+    @IBOutlet weak var leftTabBarButton: UIBarButtonItem!
+    
     
     //MARK:Variable
-    var startPlayers = [Player](count: 10, repeatedValue: Player(name: "", number: "", position: ""))
+    var startPlayers = [Player](count: 10, repeatedValue: Player())
     var reservePlayers = [Player]()
     var offLinePlayers = [Player]()
     var selectedIndexPath: NSIndexPath?
@@ -49,6 +51,8 @@ class OrderFormViewController: SuperViewController, UITableViewDelegate, UITable
 
         self.tableView.registerNib(UINib(nibName: "ReservePlayerHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: ReservePlayerTableViewHeaderFooterViewIdentifier)
         
+        //select database
+        self.reservePlayers = shareAppDelegate.findPlayerList()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -72,6 +76,8 @@ class OrderFormViewController: SuperViewController, UITableViewDelegate, UITable
             let destVC = segue.destinationViewController as! EditReservePlayerViewController
             destVC.fromViewController = self
         }else if segue.identifier == Segue_PositionIdentifier {
+            
+            println("")
             let destVC = segue.destinationViewController as! PositionViewController
             destVC.orderFormViewController = self
         }else if segue.identifier == Segue_ChangePlayerIdentifier {
@@ -81,7 +87,7 @@ class OrderFormViewController: SuperViewController, UITableViewDelegate, UITable
     }
     
     
-    //MARK:TableView 
+    //MARK: - TableView
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 3
     }
@@ -101,7 +107,7 @@ class OrderFormViewController: SuperViewController, UITableViewDelegate, UITable
                 rowCounter = offLinePlayers.count
             }
         default:
-            println("no match in numberOfRowsInSection")
+            return 0
         }
         
         return rowCounter
@@ -157,7 +163,7 @@ class OrderFormViewController: SuperViewController, UITableViewDelegate, UITable
         case 2 :
             title = "下場"
         default:
-            println("no match in titleForHeaderInSection")
+            return ""
         }
         return title
     }
@@ -184,12 +190,6 @@ class OrderFormViewController: SuperViewController, UITableViewDelegate, UITable
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
-        
-//        if indexPath.section == 0 {
-//            self.selectedIndexPath = indexPath
-//            performSegueWithIdentifier(Segue_EditStartPlayerIdentifier, sender: self)
-//        }else 
         if indexPath.section == 1 {
             if indexPath.row != reservePlayers.count {
                 self.selectedIndexPath = indexPath
@@ -240,25 +240,12 @@ class OrderFormViewController: SuperViewController, UITableViewDelegate, UITable
     
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        if editingStyle == UITableViewCellEditingStyle.Delete {
-//            switch indexPath.section {
-//            case 0:
-//                self.startPlayers[indexPath.row] = Player(name: "", number: "--", position:"")
-//            case 1:
-//                self.reservePlayers.removeAtIndex(indexPath.row)
-//            case 2:
-//                self.offLinePlayers.removeAtIndex(indexPath.row)
-//            default:
-//                return
-//            }
-//        }
-//        
-//        tableView.reloadData()
+        
     }
     
+    
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
-        
-        
+
         if reservePlayers.count == 0 && indexPath.section == 1 && indexPath.row == 0 {
             return []
         }
@@ -311,33 +298,38 @@ class OrderFormViewController: SuperViewController, UITableViewDelegate, UITable
         
         
         if indexPath.section == 0 {
+            let thePlayer = self.startPlayers[indexPath.row]
+            if thePlayer.name == nil && thePlayer.number == nil && thePlayer.position == nil {
+                return [editAction]
+            }
             changeAction.title = "下場"
         }else if indexPath.section == 1 {
             changeAction.title = "上場"
         }else {
             changeAction.title = "再上場"
         }
+    
 
         return [changeAction, editAction, deleteAction]
     }
     
 
-    //MARK: IBAction
+    //MARK: - IBAction
     @IBAction func sortButtonPressed(sender: UIBarButtonItem) {
         self.tableView.editing = !self.tableView.editing
         if self.tableView.editing {
-            sender.image = UIImage(named: "cross")
+            self.rightTabBarButton.image = UIImage(named: "cross")
         }else{
-            sender.image = UIImage(named: "sort")
+            self.rightTabBarButton.image = UIImage(named: "sort")
         }
     }
 
     @IBAction func menuButtonPressed(sender: UIBarButtonItem) {
         if self.tableView.editing {
             self.tableView.editing = false
-            sender.image = UIImage(named: "sort")
+            self.rightTabBarButton.image = UIImage(named: "sort")
         }
-        let actionSheet = UIActionSheet(title: "選單", delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: "資料清空", otherButtonTitles: "回到主選單", "守備地圖")
+        let actionSheet = UIActionSheet(title: "選單", delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: "退出", otherButtonTitles: "初始化", "守備地圖")
         actionSheet.showInView(self.view)
     }
     
@@ -347,14 +339,19 @@ class OrderFormViewController: SuperViewController, UITableViewDelegate, UITable
     }
     
     
-    //MARK: UIActionSheetDelegate
+    //MARK: - UIActionSheetDelegate
     
     func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
         switch buttonIndex {
+        case 0:
+            self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
         case 1:
             return
         case 2:
-            self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+            self.startPlayers = [Player](count: 10, repeatedValue: Player(name: "", number: "", position: ""))
+            self.reservePlayers = shareAppDelegate.findPlayerList()
+            self.offLinePlayers = [Player]()
+            self.tableView.reloadData()
         case 3:
             performSegueWithIdentifier(Segue_PositionIdentifier, sender: self)
         default:
