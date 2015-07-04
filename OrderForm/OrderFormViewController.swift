@@ -348,7 +348,7 @@ class OrderFormViewController: SuperViewController, UITableViewDelegate, UITable
         case 1:
             return
         case 2:
-            self.startPlayers = [Player](count: 10, repeatedValue: Player(name: "", number: "", position: ""))
+            self.startPlayers = [Player](count: 10, repeatedValue: Player())
             self.reservePlayers = shareAppDelegate.findPlayerList()
             self.offLinePlayers = [Player]()
             self.tableView.reloadData()

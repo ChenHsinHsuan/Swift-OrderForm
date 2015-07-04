@@ -7,15 +7,24 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 
 let shareAppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-
+let PAGE_ADUNIT_ID = "ca-app-pub-5200673733349176/7626862844"
 class MainViewController: SuperViewController {
 
+    var theGADInterstitial = GADInterstitial(adUnitID: PAGE_ADUNIT_ID)
+    let request = GADRequest()
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        //廣告設定
+        request.testDevices = [
+            "ffd5b4c17425a518e4f9c99b1738ae16" //AirPhone
+        ];
+        theGADInterstitial.loadRequest(request)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,4 +43,16 @@ class MainViewController: SuperViewController {
     }
     */
 
+    @IBAction func sponseButtonPressed(sender: AnyObject) {
+        //準備廣告
+        if (theGADInterstitial.isReady) {
+            theGADInterstitial.presentFromRootViewController(self)
+        }else{
+            theGADInterstitial = GADInterstitial(adUnitID: PAGE_ADUNIT_ID)
+            theGADInterstitial.loadRequest(request)
+            if (theGADInterstitial.isReady) {
+                theGADInterstitial.presentFromRootViewController(self)
+            }
+        }
+    }
 }

@@ -1106,48 +1106,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackGround" translatesAutoresizingMaskIntoConstraints="NO" id="mev-Sg-4cO">
                                 <rect key="frame" x="0.0" y="-45" width="320" height="613"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQq-CR-RDM" customClass="SpringButton" customModule="Spring">
-                                <rect key="frame" x="57" y="441" width="206" height="38"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                <state key="normal" title="球員建檔" backgroundImage="Flag">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="selected" backgroundImage="Flag_Pressed"/>
-                                <state key="highlighted" title="球員建檔" backgroundImage="Flag_Pressed"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideLeft"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
-                                        <real key="value" value="0.20000000000000001"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="xFd-VO-JPa" kind="presentation" modalTransitionStyle="crossDissolve" id="Bmy-wP-xzf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTA-3W-SNg" customClass="SpringButton" customModule="Spring">
-                                <rect key="frame" x="57" y="510" width="206" height="38"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
-                                <state key="normal" title="毆打單" backgroundImage="Flag">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="selected" backgroundImage="Flag_Pressed"/>
-                                <state key="highlighted" title="毆打單" backgroundImage="Flag_Pressed"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideRight"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
-                                        <real key="value" value="0.40000000000000002"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="JF5-r9-VmR" kind="presentation" modalTransitionStyle="crossDissolve" id="HNk-2f-DIf"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baseball" translatesAutoresizingMaskIntoConstraints="NO" id="oQK-i2-1zO" customClass="SpringImageView" customModule="Spring">
                                 <rect key="frame" x="45" y="168" width="231" height="231"/>
                                 <constraints>
@@ -1159,24 +1117,105 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcU-a1-PlR" customClass="SpringButton" customModule="Spring">
+                                <rect key="frame" x="57" y="464" width="206" height="38"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <state key="normal" title="毆打單" backgroundImage="Flag">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="Flag_Pressed"/>
+                                <state key="highlighted" title="毆打單" backgroundImage="Flag_Pressed"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.40000000000000002"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="scaleX">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="scaleY">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="JF5-r9-VmR" kind="presentation" modalTransitionStyle="crossDissolve" id="U4h-DB-mP6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTA-3W-SNg" customClass="SpringButton" customModule="Spring">
+                                <rect key="frame" x="57" y="510" width="206" height="38"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <state key="normal" title="點廣告贊助作者" backgroundImage="Flag">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="Flag_Pressed"/>
+                                <state key="highlighted" backgroundImage="Flag_Pressed"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="scaleX">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="scaleY">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sponseButtonPressed:" destination="uNL-CA-Ia2" eventType="touchUpInside" id="Syu-gT-ngX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQq-CR-RDM" customClass="SpringButton" customModule="Spring">
+                                <rect key="frame" x="57" y="418" width="206" height="38"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <state key="normal" title="球員建檔" backgroundImage="Flag">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="Flag_Pressed"/>
+                                <state key="highlighted" title="球員建檔" backgroundImage="Flag_Pressed"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="scaleX">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="scaleY">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="xFd-VO-JPa" kind="presentation" modalTransitionStyle="crossDissolve" id="Bmy-wP-xzf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mev-Sg-4cO" firstAttribute="centerY" secondItem="oQK-i2-1zO" secondAttribute="centerY" constant="-22" id="179-pZ-Vnm"/>
-                            <constraint firstItem="LTA-3W-SNg" firstAttribute="top" secondItem="mev-Sg-4cO" secondAttribute="bottom" constant="-58" id="1c9-tJ-cYv"/>
-                            <constraint firstItem="LTA-3W-SNg" firstAttribute="leading" secondItem="RQq-CR-RDM" secondAttribute="leading" id="3D3-ov-ySA"/>
-                            <constraint firstItem="LTA-3W-SNg" firstAttribute="centerX" secondItem="RQq-CR-RDM" secondAttribute="centerX" id="7hz-Ru-AVu"/>
+                            <constraint firstItem="LTA-3W-SNg" firstAttribute="top" secondItem="mev-Sg-4cO" secondAttribute="bottom" constant="-58" id="2Vf-Vh-e15"/>
+                            <constraint firstItem="RQq-CR-RDM" firstAttribute="centerX" secondItem="vcU-a1-PlR" secondAttribute="centerX" id="718-fe-ZLG"/>
                             <constraint firstItem="oQK-i2-1zO" firstAttribute="leading" secondItem="jIO-fs-7zO" secondAttribute="leadingMargin" constant="29" id="9uX-ii-eWV"/>
+                            <constraint firstItem="LTA-3W-SNg" firstAttribute="centerX" secondItem="vcU-a1-PlR" secondAttribute="centerX" id="A6S-FC-gkv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oQK-i2-1zO" secondAttribute="trailing" constant="28" id="GsK-AA-Dqy"/>
                             <constraint firstItem="mev-Sg-4cO" firstAttribute="leading" secondItem="jIO-fs-7zO" secondAttribute="leadingMargin" constant="-16" id="HWa-5j-dUS"/>
-                            <constraint firstItem="LTA-3W-SNg" firstAttribute="trailing" secondItem="RQq-CR-RDM" secondAttribute="trailing" id="KoC-CB-Vwc"/>
+                            <constraint firstItem="LTA-3W-SNg" firstAttribute="centerX" secondItem="mev-Sg-4cO" secondAttribute="centerX" id="LJg-H8-efH"/>
+                            <constraint firstItem="vcU-a1-PlR" firstAttribute="top" secondItem="RQq-CR-RDM" secondAttribute="bottom" constant="8" id="PJy-WV-ppS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mev-Sg-4cO" secondAttribute="trailing" constant="-16" id="Tpo-x6-H1k"/>
-                            <constraint firstItem="LTA-3W-SNg" firstAttribute="top" secondItem="RQq-CR-RDM" secondAttribute="bottom" constant="31" id="TtH-8g-chm"/>
-                            <constraint firstItem="oQK-i2-1zO" firstAttribute="leading" secondItem="RQq-CR-RDM" secondAttribute="leading" constant="-12" id="UKh-c7-mmH"/>
+                            <constraint firstItem="LTA-3W-SNg" firstAttribute="top" secondItem="vcU-a1-PlR" secondAttribute="bottom" constant="8" id="WO3-sO-bsP"/>
                             <constraint firstItem="mev-Sg-4cO" firstAttribute="centerX" secondItem="oQK-i2-1zO" secondAttribute="centerX" constant="-0.5" id="bO2-ZO-DYh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="RQq-CR-RDM" secondAttribute="trailing" constant="41" id="f2M-nA-zPj"/>
-                            <constraint firstItem="oQK-i2-1zO" firstAttribute="centerX" secondItem="RQq-CR-RDM" secondAttribute="centerX" constant="0.5" id="h5t-w9-qmm"/>
-                            <constraint firstItem="oQK-i2-1zO" firstAttribute="trailing" secondItem="RQq-CR-RDM" secondAttribute="trailing" constant="13" id="vea-bG-pui"/>
                             <constraint firstItem="mev-Sg-4cO" firstAttribute="top" secondItem="1LU-dZ-JLK" secondAttribute="bottom" constant="-65" id="yL5-H4-naU"/>
                             <constraint firstItem="4af-8b-48p" firstAttribute="top" secondItem="mev-Sg-4cO" secondAttribute="bottom" id="zfv-eg-QTJ"/>
                         </constraints>

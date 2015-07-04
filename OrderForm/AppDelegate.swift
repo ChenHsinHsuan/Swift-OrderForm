@@ -10,7 +10,7 @@ import UIKit
 import FMDB
 import Fabric
 import Crashlytics
-
+import iRate
 
 let DBNAME = "orderform.sqlite"
 let DB_FOLDER = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
@@ -28,6 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Fabric.with([Crashlytics()])
 
+
+        iRate.sharedInstance().applicationBundleID = "com.aircon.OrderForm"
+        iRate.sharedInstance().onlyPromptIfLatestVersion = false
+        iRate.sharedInstance().daysUntilPrompt = 0.5
+        iRate.sharedInstance().usesUntilPrompt = 3
+//                iRate.sharedInstance().previewMode = true
         
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
 
