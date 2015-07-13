@@ -1106,17 +1106,33 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackGround" translatesAutoresizingMaskIntoConstraints="NO" id="mev-Sg-4cO">
                                 <rect key="frame" x="0.0" y="-45" width="320" height="613"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baseball" translatesAutoresizingMaskIntoConstraints="NO" id="oQK-i2-1zO" customClass="SpringImageView" customModule="Spring">
-                                <rect key="frame" x="45" y="168" width="231" height="231"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="oQK-i2-1zO" secondAttribute="height" multiplier="1:1" id="sJn-I1-mn5"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQq-CR-RDM" customClass="SpringButton" customModule="Spring">
+                                <rect key="frame" x="57" y="418" width="206" height="38"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <state key="normal" title="球員建檔" backgroundImage="Flag">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="Flag_Pressed"/>
+                                <state key="highlighted" title="球員建檔" backgroundImage="Flag_Pressed"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="squeezeDown"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="scaleX">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="scaleY">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                            </imageView>
+                                <connections>
+                                    <segue destination="xFd-VO-JPa" kind="presentation" modalTransitionStyle="crossDissolve" id="Bmy-wP-xzf"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcU-a1-PlR" customClass="SpringButton" customModule="Spring">
                                 <rect key="frame" x="57" y="464" width="206" height="38"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
@@ -1174,38 +1190,22 @@
                                     <action selector="sponseButtonPressed:" destination="uNL-CA-Ia2" eventType="touchUpInside" id="Syu-gT-ngX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQq-CR-RDM" customClass="SpringButton" customModule="Spring">
-                                <rect key="frame" x="57" y="418" width="206" height="38"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                <state key="normal" title="球員建檔" backgroundImage="Flag">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="selected" backgroundImage="Flag_Pressed"/>
-                                <state key="highlighted" title="球員建檔" backgroundImage="Flag_Pressed"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baseball" translatesAutoresizingMaskIntoConstraints="NO" id="oQK-i2-1zO" customClass="SpringImageView" customModule="Spring">
+                                <rect key="frame" x="45" y="168" width="231" height="231"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oQK-i2-1zO" secondAttribute="height" multiplier="1:1" id="sJn-I1-mn5"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
-                                        <real key="value" value="0.20000000000000001"/>
-                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="squeezeDown"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="scaleX">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="scaleY">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="xFd-VO-JPa" kind="presentation" modalTransitionStyle="crossDissolve" id="Bmy-wP-xzf"/>
-                                </connections>
-                            </button>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mev-Sg-4cO" firstAttribute="centerY" secondItem="oQK-i2-1zO" secondAttribute="centerY" constant="-22" id="179-pZ-Vnm"/>
                             <constraint firstItem="LTA-3W-SNg" firstAttribute="top" secondItem="mev-Sg-4cO" secondAttribute="bottom" constant="-58" id="2Vf-Vh-e15"/>
+                            <constraint firstItem="RQq-CR-RDM" firstAttribute="top" secondItem="oQK-i2-1zO" secondAttribute="bottom" constant="19" id="6Og-8E-FgC"/>
                             <constraint firstItem="RQq-CR-RDM" firstAttribute="centerX" secondItem="vcU-a1-PlR" secondAttribute="centerX" id="718-fe-ZLG"/>
                             <constraint firstItem="oQK-i2-1zO" firstAttribute="leading" secondItem="jIO-fs-7zO" secondAttribute="leadingMargin" constant="29" id="9uX-ii-eWV"/>
                             <constraint firstItem="LTA-3W-SNg" firstAttribute="centerX" secondItem="vcU-a1-PlR" secondAttribute="centerX" id="A6S-FC-gkv"/>
@@ -1225,7 +1225,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cif-PY-3uh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136" y="-159"/>
+            <point key="canvasLocation" x="-18" y="-705"/>
         </scene>
         <!--球員清單-->
         <scene sceneID="5TU-Hk-NJh">
